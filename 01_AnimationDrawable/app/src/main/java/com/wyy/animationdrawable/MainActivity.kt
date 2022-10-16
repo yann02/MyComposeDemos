@@ -55,8 +55,12 @@ fun RecordingView() {
     }
 }
 
+/**
+ * 根据余数来判断要显示的图片
+ * @param remainder 余数
+ */
 fun getVoiceResIntByRemainder(remainder: Int) = when (remainder) {
-    1 -> R.mipmap.voice_recognize_1
+    1 -> R.mipmap.voice_recognize_1  //  初始图片
     2 -> R.mipmap.voice_recognize_2
     else -> R.mipmap.voice_recognize_3
 }
@@ -67,7 +71,7 @@ fun getVoiceResIntByRemainder(remainder: Int) = when (remainder) {
  * 第一个发送的值为1
  */
 fun infiniteWithPeriod(periodInTimeMillis: Long) = flow {
-    var counter = 0
+    var counter = 0  //  控制展示不同的图片
     while (true) {
         emit(++counter)
         delay(periodInTimeMillis)
